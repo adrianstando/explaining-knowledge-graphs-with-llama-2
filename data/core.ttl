@@ -1,0 +1,268 @@
+@prefix : <https://assist-iot.eu/ontologies/aiot#> .
+@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://assist-iot.eu/ontologies/aiot#> .
+
+<https://assist-iot.eu/ontologies/aiot#> rdf:type owl:Ontology ;
+                                          owl:imports <http://www.w3.org/ns/ssn/> ;
+                                          <http://purl.org/dc/terms/description> "Core module of AIoT (ASSIST-IoT ontology)."@en ;
+                                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "aiot"^^xsd:string ;
+                                          rdfs:label "ASSIST-IoT core ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasPhenomenon
+om:hasPhenomenon rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://www.w3.org/ns/ssn/isPropertyOf> ;
+                 rdfs:domain om:Quantity .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasQuantity
+om:hasQuantity rdf:type owl:ObjectProperty ;
+               rdfs:range om:Quantity .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
+om:hasUnit rdf:type owl:ObjectProperty ;
+           rdfs:range om:Unit .
+
+
+###  https://assist-iot.eu/ontologies/aiot#hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+             rdfs:range :Location ;
+             rdfs:comment "Indicates a physical location of an entity."@en ;
+             rdfs:label "has location"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#hasServiceInterface
+:hasServiceInterface rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Service ;
+                     rdfs:range :ServiceInterface ;
+                     rdfs:label "has service interface"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#hasServiceOperation
+:hasServiceOperation rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ServiceInterface ;
+                     rdfs:range :ServiceOperation ;
+                     rdfs:label "has service operation"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#hasUser
+:hasUser rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:range [ rdf:type owl:Restriction ;
+                      owl:onProperty :hasUser ;
+                      owl:allValuesFrom :User
+                    ] ;
+         rdfs:comment "Relation between an element of an IoT system and its user."@en ;
+         rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+         rdfs:label "has user"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#offersService
+:offersService rdf:type owl:ObjectProperty ;
+               rdfs:domain <http://www.w3.org/ns/ssn/System> ;
+               rdfs:range :Service ;
+               rdfs:label "offers service"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://assist-iot.eu/ontologies/aiot#hasInputDataModel
+:hasInputDataModel rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :ServiceOperation ;
+                   rdfs:range xsd:anyURI ;
+                   rdfs:label "has input data model"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#hasInterfaceDefinition
+:hasInterfaceDefinition rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :ServiceInterface ;
+                        rdfs:range xsd:anyURI ;
+                        rdfs:label "has interface definition"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#hasOutputDataModel
+:hasOutputDataModel rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :ServiceOperation ;
+                    rdfs:range xsd:anyURI ;
+                    rdfs:label "has output data model"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
+om:Measure rdf:type owl:Class .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity
+om:Quantity rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/ns/ssn/Property> .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/Unit
+om:Unit rdf:type owl:Class .
+
+
+###  https://assist-iot.eu/ontologies/aiot#Enabler
+:Enabler rdf:type owl:Class ;
+         rdfs:subClassOf <http://www.w3.org/ns/ssn/System> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty <http://www.w3.org/ns/ssn/hasSubSystem> ;
+                           owl:allValuesFrom :EnablerComponent
+                         ] ;
+         rdfs:comment "ASSIST-IoT encapsulated enabler"@en ;
+         rdfs:label "Enabler"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#EnablerComponent
+:EnablerComponent rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.w3.org/ns/ssn/System> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://www.w3.org/ns/sosa/isHostedBy> ;
+                                    owl:allValuesFrom :IoTDevice
+                                  ] ;
+                  rdfs:comment "A component of an encapsulated enabler. Can be hosted by an IoTDevice."@en ;
+                  rdfs:label "Enabler Component"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#IoTDevice
+:IoTDevice rdf:type owl:Class ;
+           rdfs:subClassOf <http://www.w3.org/ns/sosa/Platform> ;
+           rdfs:comment "An IoT device can host sensors, actuators, samplers, and enabler components."@en ;
+           rdfs:label "IoT device"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#Location
+:Location rdf:type owl:Class ;
+          rdfs:comment "Abstract physical location of an entity. Subclasses can express the location using relative coordinates, geographical coordinates, or any other system."@en ;
+          rdfs:label "Location"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#LocationObservation
+:LocationObservation rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+                                       owl:allValuesFrom :LocationResult
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                       owl:allValuesFrom :LocationProperty
+                                     ] ;
+                     rdfs:label "Location Observation"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#LocationProperty
+:LocationProperty rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/sosa/observedProperty>
+                                                   ] ;
+                                    owl:allValuesFrom :LocationObservation
+                                  ] ;
+                  rdfs:comment "The location of some Feature Of Interest."@en ;
+                  rdfs:label "Location Property"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#LocationResult
+:LocationResult rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ,
+                                :Location ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty <http://www.w3.org/ns/sosa/isResultOf> ;
+                                  owl:allValuesFrom :LocationObservation
+                                ] ;
+                rdfs:comment "Result of a Location Observation."@en ;
+                rdfs:label "Location Result"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#MeasureResult
+:MeasureResult rdf:type owl:Class ;
+               rdfs:subClassOf om:Measure ,
+                               <http://www.w3.org/ns/sosa/Result> ;
+               rdfs:label "Measure Result"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#Service
+:Service rdf:type owl:Class ;
+         rdfs:comment "A provision of a function in an IoT ecosystem."@en ;
+         rdfs:label "Service"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#ServiceInterface
+:ServiceInterface rdf:type owl:Class ;
+                  rdfs:label "Service Interface"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#ServiceOperation
+:ServiceOperation rdf:type owl:Class ;
+                  rdfs:label "Service Operation"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot#User
+:User rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+      rdfs:comment "An IoT system user, either human or software."@en ;
+      rdfs:label "User"^^xsd:string .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://assist-iot.eu/ontologies/aiot#component1
+:component1 rdf:type owl:NamedIndividual ,
+                     :EnablerComponent .
+
+
+###  https://assist-iot.eu/ontologies/aiot#device1
+:device1 rdf:type owl:NamedIndividual ,
+                  :IoTDevice .
+
+
+###  https://assist-iot.eu/ontologies/aiot#sensor1
+:sensor1 rdf:type owl:NamedIndividual ;
+         <http://www.w3.org/ns/sosa/isHostedBy> :device1 .
+
+
+###  https://assist-iot.eu/ontologies/aiot#enabler/1
+<https://assist-iot.eu/ontologies/aiot#enabler/1> rdf:type owl:NamedIndividual ,
+                                                           :Enabler ;
+                                                  <http://www.w3.org/ns/ssn/hasSubSystem> :component1 .
+
+
+###  https://assist-iot.eu/ontologies/aiot#foi/1
+<https://assist-iot.eu/ontologies/aiot#foi/1> rdf:type owl:NamedIndividual ,
+                                                       <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+
+
+###  https://assist-iot.eu/ontologies/aiot#observation/1
+<https://assist-iot.eu/ontologies/aiot#observation/1> rdf:type owl:NamedIndividual ,
+                                                               <http://www.w3.org/ns/sosa/Observation> .
+
+
+###  https://assist-iot.eu/ontologies/aiot#platform/1
+<https://assist-iot.eu/ontologies/aiot#platform/1> rdf:type owl:NamedIndividual ,
+                                                            <http://www.w3.org/ns/sosa/Platform> ;
+                                                   <http://www.w3.org/ns/sosa/hosts> :component1 .
+
+
+###  https://assist-iot.eu/ontologies/aiot#property/1
+<https://assist-iot.eu/ontologies/aiot#property/1> rdf:type owl:NamedIndividual ,
+                                                            om:Quantity ;
+                                                   <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/ontologies/aiot#foi/1> .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

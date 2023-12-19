@@ -1,0 +1,414 @@
+@prefix : <https://assist-iot.eu/ontologies/aiot_p2#> .
+@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix aiot: <https://assist-iot.eu/ontologies/aiot#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix aiot_p2: <https://assist-iot.eu/ontologies/aiot_p2#> .
+@base <https://assist-iot.eu/ontologies/aiot_p2#> .
+
+<https://assist-iot.eu/ontologies/aiot_p2#> rdf:type owl:Ontology ;
+                                             owl:imports <http://www.ontology-of-units-of-measure.org/resource/om-2> ,
+                                                         aiot: ;
+                                             <http://purl.org/vocab/vann/preferredNamespacePrefix> "aiot_p2"@en ;
+                                             rdfs:label "Extensions specific to ASSIST-IoT Pilot 2"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasAccuracyValue
+aiot_p2:hasAccuracyValue rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf om:hasValue .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasBIMModel
+aiot_p2:hasBIMModel rdf:type owl:ObjectProperty ;
+                    rdfs:range aiot_p2:BIMModel ;
+                    rdfs:comment "Indicates the BIM model that is used as a reference"@en ;
+                    rdfs:label "Has BIM model"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasImage
+aiot_p2:hasImage rdf:type owl:ObjectProperty ;
+                 rdfs:range aiot_p2:Image ;
+                 rdfs:label "Has image"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasLocationMeasurementType
+aiot_p2:hasLocationMeasurementType rdf:type owl:ObjectProperty ;
+                                   rdfs:domain aiot_p2:BIMLocation ;
+                                   rdfs:range aiot_p2:LocationMeasurementType ;
+                                   rdfs:comment "Indicates the method with which the location measurement was performed (2D or 3D)"@en ;
+                                   rdfs:label "Has location measurement type"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasSafetyStatus
+aiot_p2:hasSafetyStatus rdf:type owl:ObjectProperty ;
+                        rdfs:range aiot_p2:SafetyStatus .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasXValue
+aiot_p2:hasXValue rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf om:hasValue ;
+                  rdfs:range om:Measure ;
+                  rdfs:label "Has X value"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasYValue
+aiot_p2:hasYValue rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf om:hasValue ;
+                  rdfs:range om:Measure ;
+                  rdfs:label "Has Y value"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasZValue
+aiot_p2:hasZValue rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf om:hasValue ;
+                  rdfs:range om:Measure ;
+                  rdfs:label "Has Z value"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://assist-iot.eu/ontologies/aiot_p2#accelerationWindow
+aiot_p2:accelerationWindow rdf:type owl:DatatypeProperty ;
+                           rdfs:domain aiot_p2:AccelerationResult ;
+                           rdfs:range xsd:positiveInteger ;
+                           rdfs:comment "Number of the acceleration window in the observation. The numbers span from 1 to X, where X is the number of windows per observation. Windows with higher numbers correspond to a later point in time. The windows are assumed to be distributed evenly in the observation's time span."@en ;
+                           rdfs:label "Acceleration window number"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasAlarm
+aiot_p2:hasAlarm rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain aiot_p2:TagMetadataResult ;
+                 rdfs:range xsd:boolean ;
+                 rdfs:label "Has alarm"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasConfidence
+aiot_p2:hasConfidence rdf:type owl:DatatypeProperty ;
+                      rdfs:range xsd:decimal ;
+                      rdfs:comment "Indicates the confidence of the method (e.g., a machine learning model) that made the decision"@en ;
+                      rdfs:label "Has confidence"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasMedicalTestsExpirationDate
+aiot_p2:hasMedicalTestsExpirationDate rdf:type owl:DatatypeProperty ;
+                                      rdfs:subPropertyOf aiot_p2:workerHasExpirationDate ;
+                                      rdfs:range xsd:dateTime ;
+                                      rdfs:label "Has medical tests expiration date"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasPermissionsExpirationDate
+aiot_p2:hasPermissionsExpirationDate rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf aiot_p2:workerHasExpirationDate ;
+                                     rdfs:range xsd:dateTime ;
+                                     rdfs:label "Has permissions expiration date"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasRepoPath
+aiot_p2:hasRepoPath rdf:type owl:DatatypeProperty ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Full path to the object in the Semantic Repository. Format should be \"namespace/model/version\"."@en ;
+                    rdfs:label "Has Semantic Repository path"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasTrainingExpirationDate
+aiot_p2:hasTrainingExpirationDate rdf:type owl:DatatypeProperty ;
+                                  rdfs:subPropertyOf aiot_p2:workerHasExpirationDate ;
+                                  rdfs:range xsd:dateTime ;
+                                  rdfs:label "Has training expiration date"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasWatchBatteryLevel
+aiot_p2:hasWatchBatteryLevel rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:domain aiot_p2:TagMetadataResult ;
+                             rdfs:range xsd:int ;
+                             rdfs:label "Has watch battery level"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#hasWatchConnected
+aiot_p2:hasWatchConnected rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain aiot_p2:TagMetadataResult ;
+                          rdfs:range xsd:boolean ;
+                          rdfs:label "Has watch connected"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#indeterminateWorkersNum
+aiot_p2:indeterminateWorkersNum rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf aiot_p2:workersNum ;
+                                rdfs:range xsd:integer ;
+                                rdfs:label "Number of workers whose safety cannot be determined"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#isCraneOperator
+aiot_p2:isCraneOperator rdf:type owl:DatatypeProperty ;
+                        rdfs:domain aiot_p2:Worker ;
+                        rdfs:range xsd:boolean ;
+                        rdfs:comment "Indicates whether the worker is a crane operator"@en ;
+                        rdfs:label "Is crane operator"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#safeWorkersNum
+aiot_p2:safeWorkersNum rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf aiot_p2:workersNum ;
+                       rdfs:range xsd:integer ;
+                       rdfs:label "Number of safe workers"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#unsafeWorkersNum
+aiot_p2:unsafeWorkersNum rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf aiot_p2:workersNum ;
+                         rdfs:range xsd:integer ;
+                         rdfs:label "Number of unsafe workers"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#workerHasExpirationDate
+aiot_p2:workerHasExpirationDate rdf:type owl:DatatypeProperty ;
+                                rdfs:domain aiot_p2:Worker ;
+                                rdfs:range xsd:dateTime ;
+                                rdfs:comment "Has some abstract expiration date. This can be, for example, medical tests, or work permissions."@en ;
+                                rdfs:label "Worker has expiration date"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#workersNum
+aiot_p2:workersNum rdf:type owl:DatatypeProperty ;
+                   rdfs:range xsd:integer ;
+                   rdfs:comment "Indicates how many workers are associated with something."@en ;
+                   rdfs:label "Number of workers"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://schema.org/Person
+schema:Person rdf:type owl:Class .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#AccelerationResult
+aiot_p2:AccelerationResult rdf:type owl:Class ;
+                           rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
+                           rdfs:comment "Result of a 3-axis acceleration measurement"@en ;
+                           rdfs:label "Acceleration result"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#AtmosphericPressure
+aiot_p2:AtmosphericPressure rdf:type owl:Class ;
+                            rdfs:subClassOf om:Pressure ;
+                            rdfs:label "atmospheric pressure"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#AverageWindSpeed
+aiot_p2:AverageWindSpeed rdf:type owl:Class ;
+                         rdfs:subClassOf om:AverageSpeed ,
+                                         aiot_p2:WindSpeed ;
+                         rdfs:comment "Average wind speed over 10 minutes prior to time of measurement."@en ;
+                         rdfs:label "average wind speed"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#BIMLocation
+aiot_p2:BIMLocation rdf:type owl:Class ;
+                    rdfs:subClassOf aiot:Location ;
+                    rdfs:comment "Location relative to the root of some BIM model."@en ;
+                    rdfs:label "Location within a BIM model"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#BIMModel
+aiot_p2:BIMModel rdf:type owl:Class ;
+                 rdfs:comment "A BIM model used as a reference"@en ;
+                 rdfs:label "BIM model"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#CameraResult
+aiot_p2:CameraResult rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
+                     rdfs:comment "Result of an observation from a camera on the construction site."@en ;
+                     rdfs:label "Camera result"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#Image
+aiot_p2:Image rdf:type owl:Class ;
+              rdfs:comment "Image stored in the Semantic Repository. Use the hasRepoPath property to indicate where to find the image."@en ;
+              rdfs:label "Image"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#LocationMeasurementType
+aiot_p2:LocationMeasurementType rdf:type owl:Class ;
+                                rdfs:comment "Method that was used to perform the location measurement"@en ;
+                                rdfs:label "Location measurement type"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#RainRate
+aiot_p2:RainRate rdf:type owl:Class ;
+                 rdfs:subClassOf om:Speed ;
+                 rdfs:label "rain rate"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#SafetyStatus
+aiot_p2:SafetyStatus rdf:type owl:Class ;
+                     rdfs:comment "Indicates the OSH safety status of a worker or a group of workers."@en ;
+                     rdfs:label "Safety status"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#SolarIrradiance
+aiot_p2:SolarIrradiance rdf:type owl:Class ;
+                        rdfs:subClassOf om:Irradiance ;
+                        rdfs:label "solar irradiance"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#TagMetadataResult
+aiot_p2:TagMetadataResult rdf:type owl:Class ;
+                          rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
+                          rdfs:comment "Result of a measurement of a location tag's meta properties"@en ;
+                          rdfs:label "Tag metadata result"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#UvIndex
+aiot_p2:UvIndex rdf:type owl:Class ;
+                rdfs:subClassOf om:Quantity ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty om:hasValue ;
+                                  owl:allValuesFrom [ rdf:type owl:Restriction ;
+                                                      owl:onProperty om:hasUnit ;
+                                                      owl:allValuesFrom aiot_p2:UvIndexUnit
+                                                    ]
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty om:hasDimension ;
+                                  owl:hasValue om:dimensionOne
+                                ] ;
+                rdfs:comment "international ultraviolet index"@en ;
+                rdfs:label "UV index"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#UvIndexUnit
+aiot_p2:UvIndexUnit rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:oneOf ( om:one
+                                                    )
+                                        ] ;
+                    rdfs:subClassOf om:Unit ;
+                    rdfs:comment "ultraviolet index in the international scale unit"@en ;
+                    rdfs:label "UV index unit"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#WindDirection
+aiot_p2:WindDirection rdf:type owl:Class ;
+                      rdfs:subClassOf om:Azimuth ;
+                      rdfs:label "wind direction"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#WindSpeed
+aiot_p2:WindSpeed rdf:type owl:Class ;
+                  rdfs:subClassOf om:Speed ;
+                  rdfs:label "wind speed"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#Worker
+aiot_p2:Worker rdf:type owl:Class ;
+               rdfs:subClassOf schema:Person ,
+                               aiot:User .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://assist-iot.eu/ontologies/aiot_p2#bpm
+aiot_p2:bpm rdf:type owl:NamedIndividual ,
+                     om:SingularUnit ,
+                     om:Unit ;
+            om:hasDimension om:frequency-Dimension ;
+            om:hasUnit om:hertz ;
+            om:hasFactor "0.016666668"^^xsd:float ;
+            rdfs:comment "Number of beats per minute, unit often used for heart rate measurements."@en ;
+            rdfs:label "beats per minute"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#inchHg
+aiot_p2:inchHg rdf:type owl:NamedIndividual ,
+                        om:SingularUnit ,
+                        om:Unit ;
+               om:hasDimension om:pressure-Dimension ;
+               om:hasUnit om:pascal ;
+               om:hasFactor "3386.39"^^xsd:float ;
+               rdfs:comment "An inch of mercury."@en ;
+               rdfs:label "inch of mercury"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#inchPerHour
+aiot_p2:inchPerHour rdf:type owl:NamedIndividual ,
+                             om:UnitDivision ;
+                    om:hasDenominator om:hour ;
+                    om:hasNumerator om:inch-International ;
+                    rdfs:comment "Inch per hour is a unit of speed defined as inch divided by hour."@en ;
+                    rdfs:label "inch per hour"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#measurement2D
+aiot_p2:measurement2D rdf:type owl:NamedIndividual ,
+                               aiot_p2:LocationMeasurementType ;
+                      rdfs:label "2D location measurement"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#measurement3D
+aiot_p2:measurement3D rdf:type owl:NamedIndividual ,
+                               aiot_p2:LocationMeasurementType ;
+                      rdfs:label "3D location measurement"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#measurementApproximate
+aiot_p2:measurementApproximate rdf:type owl:NamedIndividual ,
+                                        aiot_p2:LocationMeasurementType ;
+                               rdfs:label "Approximate location measurement"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#measurementNone
+aiot_p2:measurementNone rdf:type owl:NamedIndividual ,
+                                 aiot_p2:LocationMeasurementType ;
+                        rdfs:label "No location measurement"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#status_indeterminate
+aiot_p2:status_indeterminate rdf:type owl:NamedIndividual ,
+                                      aiot_p2:SafetyStatus ;
+                             rdfs:comment "For at least one worker in the group, it wasn't possible to determine whether they are safe or not. The remaining workers are safe."@en ;
+                             rdfs:label "Safety status indeterminate"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#status_safe
+aiot_p2:status_safe rdf:type owl:NamedIndividual ,
+                             aiot_p2:SafetyStatus ;
+                    rdfs:comment "All workers in the group are safe."@en ;
+                    rdfs:label "Safety status – safe"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#status_unsafe
+aiot_p2:status_unsafe rdf:type owl:NamedIndividual ,
+                               aiot_p2:SafetyStatus ;
+                      rdfs:comment "At least one worker in the group is not safe."@en ;
+                      rdfs:label "Safety status – unsafe"@en .
+
+
+###  https://assist-iot.eu/ontologies/aiot_p2#tagAccelerationUnit
+aiot_p2:tagAccelerationUnit rdf:type owl:NamedIndividual ,
+                                     om:SingularUnit ,
+                                     om:Unit ;
+                            om:hasDimension om:acceleration-Dimension ;
+                            om:hasUnit om:metrePerSecond-TimeSquared ;
+                            om:hasFactor "0.038304687"^^xsd:float ;
+                            rdfs:comment "Unit of acceleration in Neways's location tags. 1 unit corresponds to 8G / 2048."@en ;
+                            rdfs:label "Neways tag acceleration unit"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

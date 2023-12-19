@@ -1,0 +1,78 @@
+
+_:012 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> -2;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <https://assist-iot.eu/ontologies/aiot_p2#tagAccelerationUnit> .
+
+_:010 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> 257;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <https://assist-iot.eu/ontologies/aiot_p2#tagAccelerationUnit> .
+
+_:001 a <https://assist-iot.eu/ontologies/aiot_p2#TagMetadataResult>, <http://www.w3.org/ns/sosa/Result>;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasAlarm> false;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasWatchBatteryLevel> 90;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasWatchConnected> true .
+
+_:013 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> -7;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <https://assist-iot.eu/ontologies/aiot_p2#tagAccelerationUnit> .
+
+<https://assist-iot.eu/pilot2_rdf/device/tag/33298> a <http://www.w3.org/ns/sosa/Platform>,
+    <https://assist-iot.eu/ontologies/aiot_p2#IoTDevice>;
+  <http://schema.org/identifier> "tag-33298";
+  <http://www.w3.org/ns/sosa/hosts> <https://assist-iot.eu/pilot2_rdf/sensor/location/33298> .
+
+_:002 a <https://assist-iot.eu/ontologies/aiot_p2#BIMLocation>, <http://www.w3.org/ns/sosa/Result>,
+    <https://assist-iot.eu/ontologies/aiot#LocationResult>;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasLocationMeasurementType> <https://assist-iot.eu/ontologies/aiot_p2#measurementNone>;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasXValue> _:003;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasZValue> _:005;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasYValue> _:004;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasAccuracyValue> _:006 .
+
+_:008 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <https://assist-iot.eu/ontologies/aiot_p2#tagAccelerationUnit>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> -3 .
+
+_:000 a <https://assist-iot.eu/ontologies/aiot#MeasureResult>, <http://www.w3.org/ns/sosa/Result>,
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <https://assist-iot.eu/ontologies/aiot_p2#bpm>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> 0 .
+
+_:014 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <https://assist-iot.eu/ontologies/aiot_p2#tagAccelerationUnit>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> 259 .
+
+<https://assist-iot.eu/pilot2_rdf/sensor/location/33298> a <http://www.w3.org/ns/sosa/Sensor>;
+  <http://www.w3.org/ns/sosa/madeObservation> _:015 .
+
+_:011 a <http://www.w3.org/ns/sosa/Result>, <https://assist-iot.eu/ontologies/aiot_p2#AccelerationResult>;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasXValue> _:012;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasZValue> _:014;
+  <https://assist-iot.eu/ontologies/aiot_p2#accelerationWindow> "2";
+  <https://assist-iot.eu/ontologies/aiot_p2#hasYValue> _:013 .
+
+_:015 a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T11:09:12.681948"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  <http://www.w3.org/ns/sosa/hasResult> _:001, _:011, _:002, _:007, _:000 .
+
+_:006 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
+
+_:005 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
+
+_:004 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
+
+_:003 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> .
+
+_:009 a <http://www.ontology-of-units-of-measure.org/resource/om-2/Measure>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> <https://assist-iot.eu/ontologies/aiot_p2#tagAccelerationUnit>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> -7 .
+
+_:007 a <https://assist-iot.eu/ontologies/aiot_p2#AccelerationResult>, <http://www.w3.org/ns/sosa/Result>;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasYValue> _:009;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasZValue> _:010;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasXValue> _:008;
+  <https://assist-iot.eu/ontologies/aiot_p2#accelerationWindow> "1" .

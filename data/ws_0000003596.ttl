@@ -1,0 +1,163 @@
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/wind_speed_avg/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/wind_speed_avg>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/wind_speed> a <http://www.w3.org/ns/sosa/ObservableProperty>,
+    <https://assist-iot.eu/ontologies/aiot_p2#WindSpeed>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/wind_speed/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/wind_speed>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/pressure> a <https://assist-iot.eu/ontologies/aiot_p2#AtmosphericPressure>,
+    <http://www.w3.org/ns/sosa/ObservableProperty>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/uv> a <http://www.w3.org/ns/sosa/ObservableProperty>,
+    <https://assist-iot.eu/ontologies/aiot_p2#UvIndex>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/wind_speed_avg> a <https://assist-iot.eu/ontologies/aiot_p2#AverageWindSpeed>,
+    <http://www.w3.org/ns/sosa/ObservableProperty>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/wind_speed_avg/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/wind_speed_avg/2023-07-03T13%3a11%3a47.516164>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/mile-StatutePerHour>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "2"^^<http://www.w3.org/2001/XMLSchema#float> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/sun/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "281"^^<http://www.w3.org/2001/XMLSchema#float>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/sun/2023-07-03T13%3a11%3a47.516164>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/wattPerSquareMetre> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/pressure/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "29.76"^^<http://www.w3.org/2001/XMLSchema#float>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/pressure/2023-07-03T13%3a11%3a47.516164>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <https://assist-iot.eu/ontologies/aiot_p2#inchHg> .
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/pressure/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/pressure>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/temp/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/temp>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/humidity/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/humidity> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/rain> a <https://assist-iot.eu/ontologies/aiot_p2#RainRate>,
+    <http://www.w3.org/ns/sosa/ObservableProperty>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/uv/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "3"^^<http://www.w3.org/2001/XMLSchema#float>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/one>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/uv/2023-07-03T13%3a11%3a47.516164> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/humidity/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/percent>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/humidity/2023-07-03T13%3a11%3a47.516164>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "41"^^<http://www.w3.org/2001/XMLSchema#float> .
+
+<https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal> a <http://www.w3.org/ns/sosa/Sensor>;
+  <http://www.opengis.net/ont/geosparql#hasGeometry> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal/location>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Davis Vantage Pro 2 weather station installed on the pilot site" .
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/wind_dir/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/wind_dir>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/sun> a <https://assist-iot.eu/ontologies/aiot_p2#SolarIrradiance>,
+    <http://www.w3.org/ns/sosa/ObservableProperty>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/feature/site_outside> a <http://www.w3.org/ns/sosa/FeatureOfInterest>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Outside conditions on the worksite" .
+
+<https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal/location> a <http://www.opengis.net/ont/geosparql#Geometry>;
+  <http://www.opengis.net/ont/geosparql#asWKT> "Point(20.985468 52.211862)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/uv/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/uv> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/wind_speed/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/mile-StatutePerHour>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "0"^^<http://www.w3.org/2001/XMLSchema#float>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/wind_speed/2023-07-03T13%3a11%3a47.516164> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/wind_dir/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/wind_dir/2023-07-03T13%3a11%3a47.516164>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/degree>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "227"^^<http://www.w3.org/2001/XMLSchema#float> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/rain/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "0"^^<http://www.w3.org/2001/XMLSchema#float>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/rain/2023-07-03T13%3a11%3a47.516164>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <https://assist-iot.eu/ontologies/aiot_p2#inchPerHour> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/wind_dir> a <https://assist-iot.eu/ontologies/aiot_p2#WindDirection>,
+    <http://www.w3.org/ns/sosa/ObservableProperty>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/rain/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/rain>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/humidity> a <http://www.w3.org/ns/sosa/ObservableProperty>,
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/RelativeHumidity>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/result/ws/uw_mostostal/temp/2023-07-03T13%3a11%3a47.516164>
+  a <https://assist-iot.eu/ontologies/aiot#MeasureResult>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> "78.5"^^<http://www.w3.org/2001/XMLSchema#float>;
+  <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeFahrenheit>;
+  <http://www.w3.org/ns/sosa/isResultOf> <https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/temp/2023-07-03T13%3a11%3a47.516164> .
+
+<https://assist-iot.eu/pilot2_rdf/obs/ws/uw_mostostal/sun/2023-07-03T13%3a11%3a47.516164>
+  a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/observedProperty> <https://assist-iot.eu/pilot2_rdf/prop/site_outside/sun>;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-03T13:11:47.516164"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  <http://www.w3.org/ns/sosa/madeBySensor> <https://assist-iot.eu/pilot2_rdf/sensor/ws/uw_mostostal>;
+  <http://www.w3.org/ns/sosa/hasFeatureOfInterest> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
+
+<https://assist-iot.eu/pilot2_rdf/prop/site_outside/temp> a <http://www.ontology-of-units-of-measure.org/resource/om-2/FahrenheitTemperature>,
+    <http://www.w3.org/ns/sosa/ObservableProperty>;
+  <http://www.w3.org/ns/ssn/isPropertyOf> <https://assist-iot.eu/pilot2_rdf/feature/site_outside> .
