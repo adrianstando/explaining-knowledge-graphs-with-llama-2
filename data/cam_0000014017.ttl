@@ -1,0 +1,19 @@
+
+<https://assist-iot.eu/pilot2_rdf/sensor/camera/entrance_camera_1> a <http://www.w3.org/ns/sosa/Sensor>;
+  <http://www.w3.org/ns/sosa/madeObservation> _:003;
+  <http://schema.org/identifier> "entrance_camera_1" .
+
+_:003 a <http://www.w3.org/ns/sosa/Observation>;
+  <http://www.w3.org/ns/sosa/hasResult> _:000;
+  <http://www.w3.org/ns/sosa/resultTime> "2023-07-14T13:01:26.967271"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+_:000 a <https://assist-iot.eu/ontologies/aiot_p2#CameraResult>, <http://www.w3.org/ns/sosa/Result>;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasConfidence> 0.0;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasImage> _:001;
+  <https://assist-iot.eu/ontologies/aiot_p2#unsafeWorkersNum> 0;
+  <https://assist-iot.eu/ontologies/aiot_p2#safeWorkersNum> 2;
+  <https://assist-iot.eu/ontologies/aiot_p2#indeterminateWorkersNum> 0;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasSafetyStatus> <https://assist-iot.eu/ontologies/aiot_p2#status_safe> .
+
+_:001 a <https://assist-iot.eu/ontologies/aiot_p2#Image>;
+  <https://assist-iot.eu/ontologies/aiot_p2#hasRepoPath> "osh-camera/entrance_camera_1/bbdbd3a455fb44618ffa525f97730ea5" .
