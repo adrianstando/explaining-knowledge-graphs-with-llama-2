@@ -3,7 +3,7 @@
 Describe knowledge graphs with Llama 2. This project attempts to use LLMs to turn Knowledge Graphs into human readable content.
 
 # Installation
-To install the proper libraries run the following lines in a Python environment. Tested on Python 3.10.12.
+To install the proper libraries run the following commands in a Python environment. Tested on Python 3.10.12.
 ```
 CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python==0.2.26
 wget https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf?download=true
@@ -21,9 +21,16 @@ from KGExplainer import GraphExplainer
 explainer = GraphExplainer()
 explainer.set_ontologies_lookup(['pilot2.ttl'], ['https://assist-iot.eu/ontologies'])
 input_text, ontology_text = explainer.process_graph('cam_0000003596.ttl')
+
 system_prompt = """
-You are a master in the field of knowledge graphs. You perfectly know turtle and you explain their contents using layman's terms. Use the following ontology to understand the data.
+You are a master in the field of knowledge graphs, and you explain their contents using layman's terms. 
+Use the following ontology to understand the data.
 """ + ontology_text
-input_prompt = "Summarize only the data of the following graph, in sentences only. Focus on the values at the end of each line.\n\n" + input_text
+
+input_prompt = """
+Summarize only the data of the following graph, in sentences only.
+Focus on the values at the end of each line.
+""" + input_text
+
 explainer.explain_graph(system_prompt_1, input_prompt_1)
 ```

@@ -34,14 +34,26 @@ def get_graph_data(graph):
 
 class GraphExplainer:
     def __init__(self, model_path=model_path_middle, n_ctx=4096, n_batch=2048):
+        """Create the GraphExplainer object, with initialized LLM.
+
+        Args:
+            model_path (str, optional): Path to the LLM model weights. Defaults to model_path_middle.
+            n_ctx (int, optional): n_ctx parameter forwarded to the model. For further reading refer to the llama_cpp documentation. Defaults to 4096.
+            n_batch (int, optional): n_batch parameter forwarded to the model. For further reading refer to the llama_cpp documentation. Defaults to 2048.
+        """
         self.model_path = model_path
         self.n_threads = os.cpu_count()
         self.n_gpu = -1
         self.n_ctx = n_ctx
         self.n_batch = n_batch
-        self.llm = self.load_model(n_ctx=self.n_ctx, n_batch=self.n_batch)
+        self.llm = self._load_model(n_ctx=self.n_ctx, n_batch=self.n_batch)
 
-    def load_model(self, *args, **kwargs):
+    def _load_model(self, *args, **kwargs):
+        """Load the LLM object.
+
+        Returns:
+            LLama: LLM object.
+        """
         return Llama(
             model_path=self.model_path,
             n_gpu_layers=self.n_gpu,
@@ -51,6 +63,15 @@ class GraphExplainer:
         )
 
     def explain_graph(self, system_prompt, user_prompt, *args, **kwargs):
+        """Query the LLM to create a explanation.
+
+        Args:
+            system_prompt (str): System prompt for the LLM. Usually a description of how the model should behave.
+            user_prompt (str): User prompt for the LLM. Usually a question or a task for the model to perform.
+
+        Returns:
+            str: The models answer.
+        """
         out = self.llm.create_chat_completion(
             messages=[
                 {"role": "system", "content": system_prompt},
@@ -68,6 +89,14 @@ class GraphExplainer:
         default_ontologies=DEFAULT_ONTOLOGIES,
         default_iris=DEFAULT_IRIS,
     ):
+        """_summary_
+
+        Args:
+            ontologies_paths (list, str): List of paths to files, for the ontologies we want to add to the model explanations.
+            ontologies_iris (list, str): List of iris for the ontologies we want to add to the model explanations.
+            default_ontologies (list, optional): Default list of ontologies paths. Defaults to DEFAULT_ONTOLOGIES.
+            default_iris (list, optional): Default list of ontologies iris. Defaults to DEFAULT_IRIS.
+        """
         if type(ontologies_paths) == str:
             ontologies_paths = [ontologies_paths]
         if type(ontologies_iris) == str:
@@ -84,6 +113,15 @@ class GraphExplainer:
         return
 
     def process_graph(self, file_path):
+        """Process the graph to return the pure data from it, and the required data extraced from ontologies.
+
+        Args:
+            file_path (str): Path to the graph file in 'ttl' format.
+
+        Returns:
+            str: The processed input data, cleaned up.
+            str: The processed required data from ontologies, cleaned up.
+        """
         processed_graph = Graph().parse(file_path, format="ttl")
         required_ontologies = []
         for s, p, o in processed_graph.triples((None, None, None)):
